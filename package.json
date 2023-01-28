@@ -10,7 +10,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Mammut-Felix/raid-tracker.git"
+    "url": "https://github.com/Mammut-Felix/twitch-tracker.git"
   },
   "scripts": {
     "start": "export TZ=\"Europe/Berlin\" && node ./src/index.js",
