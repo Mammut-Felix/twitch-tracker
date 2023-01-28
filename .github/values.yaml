@@ -1,0 +1,50 @@
+replicaCount: 5
+
+image:
+  repository: mammuthosting/twitch-tracker
+
+imagePullSecrets:
+  - name: image-pull-secret
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    traefik.frontend.passHostHeader: 'true'
+    traefik.ingress.kubernetes.io/router.middlewares: >-
+      twitch-tracker-twitch-tracker-stripprefix@kubernetescrd
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: 'true'
+  hosts:
+    - host: prod.tracker.twitch.mammut-cluster.de
+      paths:
+        - path: /api/v1
+          pathType: Prefix
+  tls:
+    - secretName: prod.tracker.twitch.mammut-cluster.de
+      hosts:
+        - prod.tracker.twitch.mammut-cluster.de
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 0.5G
+  limits:
+    cpu: 1000m
+    memory: 1.5G
+
+maxUnavailable: 1
+
+service:
+  type: ClusterIP
+  port: 1337
+
+env:
+  secretName: twitch-tracker-env
+
+autoscaling:
+  enabled: false
+  minReplicas: 5
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 55

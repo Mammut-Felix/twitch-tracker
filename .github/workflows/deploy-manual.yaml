@@ -1,0 +1,126 @@
+name: Deploy to production
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-image-push:
+    name: Build image and push to Docker Hub
+    runs-on: ubuntu-latest
+    concurrency: build
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+      - name: Prepare
+        id: prep
+        run: |
+          TAG=$(echo $GITHUB_SHA | head -c7)
+          IMAGE="mammuthosting/twitch-tracker"
+          echo "tagged_image=${IMAGE}:${TAG}" >> $GITHUB_OUTPUT
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-single-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-single-buildx
+      - name: Build production image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          builder: ${{ steps.buildx.outputs.name }}
+          file: Dockerfile
+          push: true
+          tags: ${{ steps.prep.outputs.tagged_image }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+  create-secrets:
+    name: Create secrets
+    runs-on: ubuntu-latest
+    concurrency: secrets
+    steps:
+      - name: Generate secrets
+        run: |
+          mkdir ./secrets
+          echo "$ENVFILE" > ./secrets/env
+        env:
+          ENVFILE: ${{ secrets.ENV }}
+
+      - name: Generate kubeconfig
+        run: |
+          mkdir $HOME/.kube
+          echo "$KUBECONFIG" > $HOME/.kube/config
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG_AC0 }}
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@e1be5e75ed9741a7c467f4832ecb259a83174311 # v3
+
+      - name: Use context
+        run: kubectl config use-context ac0
+
+      - name: Ensure namespace exits
+        run: kubectl get namespace | grep -q "^twitch-tracker " || kubectl create namespace twitch-tracker
+
+      - name: Recreate secrets
+        run: |
+          kubectl delete secret twitch-tracker-env -n twitch-tracker --ignore-not-found
+          kubectl create secret generic twitch-tracker-env --from-env-file=./secrets/env -n twitch-tracker
+
+  deploy:
+    needs: [build-image-push, create-secrets]
+    runs-on: ubuntu-latest
+    concurrency: deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+
+      - name: Prepare
+        id: prep
+        run: |
+          TAG=$(echo $GITHUB_SHA | head -c7)
+          IMAGE="mammuthosting/twitch-tracker"
+          echo "tagged_image=${IMAGE}:${TAG}" >> $GITHUB_OUTPUT
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+
+      - name: Generate kubeconfig
+        run: |
+          mkdir $HOME/.kube
+          echo "$KUBECONFIG" > $HOME/.kube/config
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG_AC0 }}
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@e1be5e75ed9741a7c467f4832ecb259a83174311 # v3
+
+      - name: Use context
+        run: kubectl config use-context ac0
+
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+
+      - name: Add helm repo
+        run: |
+          helm repo add mammut-helm https://mammutmedia.github.io/helm-charts/
+          helm repo update
+      - name: Deploy remscheidapp-server
+        run: helm upgrade -f ./.github/values.yaml twitch-tracker mammut-helm/raidtracker-backend -n twitch-tracker --set image.tag="${{ steps.prep.outputs.tag }}" --set image.pullPolicy=Always --create-namespace --install --atomic --wait --timeout=5m0s

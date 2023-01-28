@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>TwitchTracker - Wöchentlicher Report</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" content="" />
+    <meta name="format-detection" content="telephone=no,address=yes,email=yes,date=no,url=yes" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <style>
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+      * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      div[style*='margin: 16px 0'] {
+        margin: 0 !important;
+      }
+      table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
+      a {
+        text-decoration: none;
+      }
+      a[x-apple-data-detectors],
+      .unstyle-auto-detected-links a,
+      .aBn {
+        border-bottom: 0 !important;
+        cursor: default !important;
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+      @media only screen and (width > 320px) and (width < 374px) {
+        u ~ div .email-container {
+          min-width: 320px !important;
+        }
+      }
+
+      @media only screen and (width > 375px) and (width < 389px) {
+        u ~ div .email-container {
+          min-width: 375px !important;
+        }
+      }
+
+      @media only screen and (width > 390px) and (width < 413px) {
+        u ~ div .email-container {
+          min-width: 390px !important;
+        }
+      }
+
+      /* iPhone 6+, 7+, and 8+ */
+      @media only screen and (width > 414px) and (width < 427px) {
+        u ~ div .email-container {
+          min-width: 414px !important;
+        }
+      }
+
+      @media only screen and (width > 428px) {
+        u ~ div .email-container {
+          min-width: 428px !important;
+        }
+      }
+      body {
+        width: 100%;
+        margin: 0;
+        padding: 0 !important;
+        background-color: #1e2630;
+      }
+      body .container {
+        width: 100%;
+        background-color: #1e2630;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .preview {
+        display: none;
+        font-size: 1px;
+        line-height: 1px;
+        max-height: 0px;
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+      .email-container {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .main-table {
+        border: 0;
+        width: 100%;
+        margin: auto;
+        border-spacing: 0;
+      }
+      .main-table td {
+        padding: 0;
+        background-color: #f2f2f2f2;
+      }
+      .header-img {
+        width: 100%;
+        max-width: 680px;
+        height: auto;
+        max-height: 300px;
+        display: block;
+        margin: auto;
+        object-fit: cover;
+      }
+      img.header-img + div {
+        display: none !important;
+      }
+      .content-table {
+        width: 100%;
+        border: 0;
+        border-spacing: 0;
+      }
+      h1 .title {
+        margin: 0 0 10px;
+        font-size: 25px;
+        line-height: 25px;
+        color: #333333;
+        font-weight: normal;
+      }
+      .content-table td {
+        padding: 20px;
+        font-family: sans-serif;
+        font-size: 15px;
+        line-height: 20px;
+        color: #555555;
+        text-align: center;
+      }
+      .channel {
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      .channel .heading {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .channel .heading img {
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+      .channel .content {
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      h2 {
+        font-size: 18px;
+        line-height: 18px;
+      }
+      h3 {
+        margin: 0;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        font-size: 15px;
+        line-height: 15px;
+      }
+      table.stream-data,
+      table.raid-data {
+        width: 100%;
+        border-collapse: collapse;
+        border-color: #ccc;
+        border-spacing: 0;
+      }
+      table.stream-data td,
+      table.raid-data td {
+        padding: 5px;
+        border-bottom: 1px dotted #ccc;
+        text-align: left;
+        background-color: #fff;
+        font-size: 13px;
+        line-height: 13px;
+      }
+      table.stream-data th,
+      table.raid-data th {
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+        background-color: #f2f2f2;
+        text-align: left;
+        font-size: 13px;
+        line-height: 13px;
+      }
+    </style>
+
+    <!--[if mso]>
+      <style>
+        body {
+          mso-line-height-rule: exactly;
+        }
+        table,
+        td {
+          mso-table-lspace: 0pt !important;
+          mso-table-rspace: 0pt !important;
+        }
+        .preview {
+          mso-hide: all;
+        }
+      </style>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="preview">TwitchTracker - Wöchentlicher Report</div>
+      <div class="preview">
+        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+      </div>
+      <div class="email-container">
+        <table class="main-table" role="presentation">
+          <tr>
+            <td>
+              <img
+                class="header-img"
+                src="https://mammut-hosting.de/raid-tracker/header.jpg"
+                alt="email header"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table class="content-table" role="presentation">
+                <tr>
+                  <td>
+                    <h1 class="title">Wöchentlicher Report</h1>
+                    <p>
+                      von: <strong>{{date_from}}</strong> <br />
+                      bis: <strong>{{date_to}}</strong>
+                    </p>
+                    <p>Onlineversion: <a href="{{ report_url }}">Klick</a></p>
+                  </td>
+                </tr>
+                {{ dev_notice }} {{ data_table }}
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

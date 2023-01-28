@@ -1,0 +1,116 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int             @id @default(autoincrement())
+  email         String          @unique
+  password      String
+  firstName     String?
+  lastName      String?
+  username      String?         @unique
+  role          Role            @default(USER)
+  banned        Boolean         @default(false)
+  refreshTokens RefreshToken[]
+  apiKeys       ApiKey[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model RefreshToken {
+  id          Int      @id @default(autoincrement())
+  hashedToken String
+  userId      Int
+  jti         String   @unique
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  revoked     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ApiKey {
+  id          Int      @id @default(autoincrement())
+  key         String
+  userId      Int
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  revoked     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  MODERATOR
+  ADMINISTRATOR
+}
+
+model TwitchEvent {
+  id                          Int      @id @default(autoincrement())
+  eventId                     String   @unique
+  eventType                   String
+  event                       Json
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+}
+
+model StreamStatistic {
+  id                          Int     @id @default(autoincrement())
+  streamId                    String
+  broadcaster_user_id         String
+  broadcaster_user_name       String
+  broadcaster_user_login      String
+  game_id                     String
+  game_name                   String
+  type                        String
+  title                       String
+  viewer_count                Int
+  started_at                  DateTime
+  language                    String
+  thumbnail_url               String
+  tag_ids                     String[]
+  is_mature                   Boolean
+  follower_count              Int
+  trigger                     String
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+}
+
+model Channel {
+  id                          Int     @id @default(autoincrement())
+  broadcaster_user_id         String  @unique
+  broadcaster_user_name       String
+  broadcaster_user_login      String
+  type                        String
+  broadcaster_type            String
+  description                 String
+  profile_image_url           String
+  offline_image_url           String
+  account_createdAt           DateTime?
+  webhooks                    Json?
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+}
+
+model Report {
+  id                          Int       @id @default(autoincrement())
+  content                     String
+  recipients                  String[]
+  status                      ReportStatus
+  result                      Json?
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+}
+
+enum ReportStatus {
+  PENDING
+  SENT
+  FAILED
+}

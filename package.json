@@ -1,0 +1,83 @@
+{
+  "name": "twitch-tracker",
+  "version": "0.0.0-development",
+  "main": "./src/index.js",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Felix Nithammer",
+    "email": "f.nithammer@mammutmedia.eu"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mammut-Felix/raid-tracker.git"
+  },
+  "scripts": {
+    "start": "export TZ=\"Europe/Berlin\" && node ./src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --watch src/ ./src/index.js",
+    "lint:js": "eslint --ext \".js\"  .",
+    "lint:prettier": "prettier --write .",
+    "lint": "yarn lint:prettier && yarn lint:js",
+    "prepare": "husky install",
+    "test": "TESTING=1 nyc ./node_modules/.bin/mocha --exit",
+    "coverage": "codecov",
+    "semantic-release": "semantic-release"
+  },
+  "lint-staged": {
+    "*.{js}": "eslint --fix --cache",
+    "*.**": "prettier --write --ignore-unknown"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "dependencies": {
+    "@bull-board/api": "4.11.0",
+    "@bull-board/express": "4.11.0",
+    "@graphql-tools/schema": "9.0.14",
+    "@prisma/client": "4.9.0",
+    "axios": "1.2.5",
+    "bcrypt": "5.1.0",
+    "bull": "4.10.2",
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "express-graphql": "0.12.0",
+    "graphql": "16.6.0",
+    "helmet": "6.0.1",
+    "html-to-text": "9.0.3",
+    "ioredis": "5.3.0",
+    "jsonwebtoken": "9.0.0",
+    "moment": "2.29.4",
+    "morgan": "1.10.0",
+    "nodemailer": "6.9.1",
+    "prisma": "4.9.0",
+    "uuid": "9.0.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/git": "10.0.1",
+    "conventional-changelog-eslint": "3.0.9",
+    "cross-env": "7.0.3",
+    "eslint": "8.32.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-n": "15.6.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-unicorn": "45.0.2",
+    "husky": "8.0.3",
+    "lint-staged": "13.1.0",
+    "mocha": "10.2.0",
+    "nodemon": "2.0.20",
+    "nyc": "15.1.0",
+    "prettier": "2.8.3",
+    "semantic-release": "20.1.0",
+    "supertest": "6.3.3"
+  }
+}
