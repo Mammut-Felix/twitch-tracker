@@ -10,14 +10,14 @@ const users = require('./users/users.routes')
 
 const router = express.Router()
 
+router.get('/healthz', (request, response) => {
+  response.sendStatus(200)
+})
+
 router.get('/', (request, response) => {
   response.json({
     message: 'API - 👋🌎🌍🌏'
   })
-})
-
-router.get('/healthz', (request, response) => {
-  response.sendStatus(200)
 })
 
 router.use('/auth', auth)
