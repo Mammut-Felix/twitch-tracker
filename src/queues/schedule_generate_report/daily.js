@@ -267,7 +267,7 @@ const buildStreamTable = ({ streams, broadcaster_user_login }) => {
         : 0
     const followerChange =
       stats.length > 0
-        ? (stats[0].follower_count - stats[stats.length - 1].follower_count).toLocaleString('de-DE')
+        ? stats[stats.length - 1].follower_count - stats[0].follower_count.toLocaleString('de-DE')
         : 0
     const topics = [...new Set(stats.map(stat => stat.game_name))].join(', ')
     html += `
