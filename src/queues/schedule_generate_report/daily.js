@@ -312,6 +312,17 @@ const buildRaidTable = raids => {
     `
 
   for (const raid of raids) {
+    // Check if data of raid is exactly the same as the previous one
+    // If the previous raid is the same as the current raid, skip it.
+    const previousRaid = raids.indexOf(raid) === 0 ? undefined : raids[raids.indexOf(raid) - 1]
+    if (
+      raid.event.viewers === previousRaid?.event.viewers &&
+      raid.event.from_broadcaster_user_name === previousRaid?.event.from_broadcaster_user_name &&
+      raid.event.to_broadcaster_user_name === previousRaid?.event.to_broadcaster_user_name
+    ) {
+      continue
+    }
+
     const from = raid.event.from_broadcaster_user_name
     const to = raid.event.to_broadcaster_user_name
     const time = moment(raid.createdAt).format('HH:mm')
