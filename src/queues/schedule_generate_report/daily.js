@@ -185,7 +185,10 @@ const buildHtml = ({ data, startDate, endDate, url }) => {
     tables += buildChannelTable(channel.channel)
 
     if (channel.streams.length > 0) {
-      tables += buildStreamTable(channel.streams)
+      tables += buildStreamTable({
+        streams: channel.streams,
+        broadcaster_user_login: channel.channel.broadcaster_user_login
+      })
     }
 
     if (channel.raids.length > 0) {
@@ -212,14 +215,14 @@ const buildChannelTable = channel => {
       <div class="channel">
         <div class="heading">
           <img
-            alt="${channel.channel.broadcaster_user_name}"
-            src="${channel.channel.profile_image_url}"
+            alt="${channel.broadcaster_user_name}"
+            src="${channel.profile_image_url}"
           />
           <h2>
             <a
-              href="https://twitch.tv/${channel.channel.broadcaster_user_login}"
+              href="https://twitch.tv/${channel.broadcaster_user_login}"
               target="_blank"
-              >${channel.channel.broadcaster_user_name}</a
+              >${channel.broadcaster_user_name}</a
             >
           </h2>
         </div>

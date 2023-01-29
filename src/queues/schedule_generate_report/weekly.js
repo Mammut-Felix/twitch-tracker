@@ -252,7 +252,8 @@ const buildStatsTable = ({ channel, streams, raids }) => {
 
   const startFollowers = streams[0]?.stats[0]?.follower_count
   const endFollowers =
-    streams[streams.length - 1]?.stats[streams[streams.length - 1]?.stats.length - 1].follower_count
+    streams[streams.length - 1]?.stats[streams[streams.length - 1]?.stats.length - 1]
+      ?.follower_count
   const follower_change_total = endFollowers - startFollowers
 
   const durations = streams.map(stream => {
