@@ -17,7 +17,7 @@ module.exports = async function (job) {
       recipients: '',
       content: '',
       status: 'PENDING',
-      result: null
+      result: undefined
     }
   })
 
@@ -41,7 +41,7 @@ module.exports = async function (job) {
       recipients: emails,
       content: html,
       status: 'PENDING',
-      result: null
+      result: undefined
     }
   })
 
@@ -141,7 +141,7 @@ const generateData = async ({ startDate, endDate }) => {
       broadcaster_user_name: streamUp.event.broadcaster_user_name,
       broadcaster_user_login: streamUp.event.broadcaster_user_login,
       started_at: streamUp.createdAt,
-      ended_at: streamDown ? streamDown.createdAt : null,
+      ended_at: streamDown ? streamDown.createdAt : undefined,
       stats
     })
   }
