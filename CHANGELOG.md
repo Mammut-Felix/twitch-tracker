@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/Mammut-Felix/twitch-tracker/compare/0.1.4...0.2.0) (2023-01-29)
+
+
+### Features
+
+* add logging ([e61583b](https://github.com/Mammut-Felix/twitch-tracker/commit/e61583b9e62bcd9c819b6cec487cf84537ba0d62))
+
 ## [0.1.4](https://github.com/Mammut-Felix/twitch-tracker/compare/0.1.3...0.1.4) (2023-01-29)
 
 
