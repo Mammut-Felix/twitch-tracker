@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/Mammut-Felix/twitch-tracker/compare/0.1.3...0.1.4) (2023-01-29)
+
+
+### Bug Fixes
+
+* eliminated double entries ([84784eb](https://github.com/Mammut-Felix/twitch-tracker/commit/84784ebef805f4a720d4bbeb37843c1fe6f077a0))
+* follower count ([c931911](https://github.com/Mammut-Felix/twitch-tracker/commit/c9319110fb8590699e6578f503fcc9e6880a49ee))
+* followers are now calculated correctly ([ebb0415](https://github.com/Mammut-Felix/twitch-tracker/commit/ebb0415d46b6507c54fe96706a8702c8b69a7049))
+
 ## [0.1.3](https://github.com/Mammut-Felix/twitch-tracker/compare/0.1.2...0.1.3) (2023-01-29)
 
 
