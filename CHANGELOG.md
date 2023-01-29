@@ -1,3 +1,10 @@
+## [0.1.3](https://github.com/Mammut-Felix/twitch-tracker/compare/0.1.2...0.1.3) (2023-01-29)
+
+
+### Bug Fixes
+
+* reports now get created correctly ([a6ded27](https://github.com/Mammut-Felix/twitch-tracker/commit/a6ded2794887003dd3fe9312d9526cc16d1d4c87))
+
 ## [0.1.2](https://github.com/Mammut-Felix/twitch-tracker/compare/0.1.1...0.1.2) (2023-01-29)
 
 
