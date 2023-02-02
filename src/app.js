@@ -6,6 +6,7 @@ const api = require('./api')
 
 const app = express()
 
+app.disable('x-powered-by')
 app.use(cors())
 app.use(express.json())
 

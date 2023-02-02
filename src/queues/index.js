@@ -18,7 +18,7 @@ let subscriber
 let client
 const queueOptions = {
   prefix:
-    process.env.REDIS_MODE === 'cluster' ? 'twitch-tracker:schedule}' : 'twitch-tracker:schedule',
+    process.env.REDIS_MODE === 'cluster' ? '{twitch-tracker:schedule}' : 'twitch-tracker:schedule',
   createClient: function (type, redisOptions) {
     switch (type) {
       case 'client': {
@@ -37,7 +37,7 @@ const queueOptions = {
         return redisClient()
       }
       default: {
-        throw new Error(`Unexpected connection type: ${type}`)
+        throw new Error('Unexpected connection type: ', type)
       }
     }
   },
