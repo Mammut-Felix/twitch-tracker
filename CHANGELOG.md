@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.2...0.2.3) (2023-02-06)
+
+
+### Bug Fixes
+
+* **queues:** add more event listeners ([4cc8b3d](https://github.com/Mammut-Felix/twitch-tracker/commit/4cc8b3d9aad7fbda84b0d1090aefc25acc75d7ea))
+
 ## [0.2.2](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.1...0.2.2) (2023-02-02)
 
 
