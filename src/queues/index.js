@@ -3,6 +3,8 @@ const Redis = require('ioredis')
 const { config, nodes } = require('../utils/redis')
 const path = require('node:path')
 const scheduledJobs = require('./scheduledJobs')
+const EventEmitter = require('node:events')
+EventEmitter.defaultMaxListeners = 20
 
 const queues = []
 
@@ -104,9 +106,11 @@ const rescheduleQueue = async (queue, handler = 'index') => {
     {
       repeat: { cron: job.cron },
       removeOnComplete: {
-        age: 1000 * 60 * 60 * 24 * 7
+        age: 1000 * 60 * 60 * 24 * 2
       },
-      removeOnFail: false
+      removeOnFail: {
+        age: 1000 * 60 * 60 * 24 * 7
+      }
     }
   )
 
