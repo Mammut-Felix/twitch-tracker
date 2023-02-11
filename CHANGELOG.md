@@ -1,3 +1,10 @@
+## [0.2.5](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.4...0.2.5) (2023-02-11)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies to v4.10.0 ([9d1f0c6](https://github.com/Mammut-Felix/twitch-tracker/commit/9d1f0c6111f1c8899e44bf7961fe9313690f7362))
+
 ## [0.2.4](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.3...0.2.4) (2023-02-11)
 
 
