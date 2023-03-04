@@ -1,3 +1,10 @@
+## [0.2.13](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.12...0.2.13) (2023-03-04)
+
+
+### Bug Fixes
+
+* update deployment ([ccdfcf0](https://github.com/Mammut-Felix/twitch-tracker/commit/ccdfcf03ca4a3371ebf89d06a5fa5264c96dfef9))
+
 ## [0.2.12](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.11...0.2.12) (2023-03-04)
 
 

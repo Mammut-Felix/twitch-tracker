@@ -1,6 +1,6 @@
 {
   "name": "twitch-tracker",
-  "version": "0.0.0-development",
+  "version": "0.2.13",
   "main": "./src/index.js",
   "license": "UNLICENSED",
   "author": {
