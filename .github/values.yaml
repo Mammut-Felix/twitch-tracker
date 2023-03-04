@@ -29,12 +29,29 @@ ingress:
 resources:
   requests:
     cpu: 200m
-    memory: 0.5G
-  limits:
-    cpu: 1000m
-    memory: 1.5G
+    memory: 512Mi
+  limits: {}
 
 maxUnavailable: 1
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: node.kubernetes.io/server-usage
+              operator: In
+              values:
+                - workload
+
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+            - key: node.kubernetes.io/agent-size
+              operator: In
+              values:
+                - xlarge
 
 service:
   type: ClusterIP
@@ -45,6 +62,3 @@ env:
 
 autoscaling:
   enabled: false
-  minReplicas: 5
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 55

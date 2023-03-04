@@ -1,4 +1,5 @@
-FROM node:18-alpine AS base
+ARG  NODE_VERSION
+FROM node:${NODE_VERSION}-alpine AS base
 RUN mkdir -p /usr/src/app/node_modules && chown -R node:node /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json ./
