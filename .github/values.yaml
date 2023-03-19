@@ -13,7 +13,7 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-production
     traefik.frontend.passHostHeader: 'true'
     traefik.ingress.kubernetes.io/router.middlewares: >-
-      twitch-tracker-twitch-tracker-stripprefix@kubernetescrd
+      traefik-v1-stripprefix@kubernetescrd
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: 'true'
   hosts:
