@@ -1,3 +1,11 @@
+## [0.2.15](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.14...0.2.15) (2023-03-20)
+
+
+### Bug Fixes
+
+* add rate limiter ([10d0124](https://github.com/Mammut-Felix/twitch-tracker/commit/10d0124e55e4570163c056b25009725a1ee99b65))
+* add resubscribe endpoint ([ae7e547](https://github.com/Mammut-Felix/twitch-tracker/commit/ae7e54704841d58a37d8c7fa96771f41f63e7fd7))
+
 ## [0.2.14](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.13...0.2.14) (2023-03-11)
 
 
