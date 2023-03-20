@@ -1,3 +1,12 @@
+## [0.2.16](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.15...0.2.16) (2023-03-20)
+
+
+### Bug Fixes
+
+* disable rate limiter for dashboard ([d8bd13a](https://github.com/Mammut-Felix/twitch-tracker/commit/d8bd13ac2870908382d2250474862045434f9a89))
+* ingress path ([5e9eb68](https://github.com/Mammut-Felix/twitch-tracker/commit/5e9eb68b8c95780d4e805030f84fad77ab013829))
+* postpone report generation to 11am ([67a2662](https://github.com/Mammut-Felix/twitch-tracker/commit/67a2662a82316ba6aab35d50cb1c03c649b3a6b3))
+
 ## [0.2.15](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.14...0.2.15) (2023-03-20)
 
 
