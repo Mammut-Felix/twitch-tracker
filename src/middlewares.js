@@ -1,6 +1,57 @@
 const jwt = require('jsonwebtoken')
+const moment = require('moment')
 const crypto = require('node:crypto')
 const { db } = require('./utils/database')
+const Redis = require('ioredis')
+const { RateLimiterRedis, RateLimiterMemory } = require('rate-limiter-flexible')
+const { config, nodes } = require('./utils/redis')
+
+const redisClient =
+  nodes.length > 0 && process.env.REDIS_MODE === 'cluster'
+    ? new Redis.Cluster(nodes, config)
+    : new Redis({
+        ...config
+      })
+
+const rateLimiterMemory = new RateLimiterMemory({
+  points: 10, // if there are 5 workers
+  duration: 1
+})
+
+const rateLimiter = new RateLimiterRedis({
+  storeClient: redisClient,
+  points: 10, // 10 requests
+  duration: 1, // per 1 second by IP
+  rejectIfRedisNotReady: true,
+  insuranceLimiter: rateLimiterMemory
+})
+
+function rateLimit(request, response, next) {
+  console.log(request.clientIp)
+  rateLimiter
+    .consume(request.clientIp)
+    .then(rateLimiterResult => {
+      const headers = {
+        'Retry-After': rateLimiterResult.msBeforeNext / 1000,
+        'X-RateLimit-Limit': 10,
+        'X-RateLimit-Remaining': rateLimiterResult.remainingPoints,
+        'X-RateLimit-Reset': moment().add(rateLimiterResult.msBeforeNext, 'ms').toISOString()
+      }
+      response.set(headers)
+      next()
+    })
+    .catch(error => {
+      const headers = {
+        'Retry-After': error.msBeforeNext / 1000,
+        'X-RateLimit-Limit': 10,
+        'X-RateLimit-Remaining': error.remainingPoints,
+        'X-RateLimit-Reset': moment().add(error.msBeforeNext, 'ms').toISOString()
+      }
+      response.set(headers)
+      response.status(429)
+      next(new Error('Too Many Requests'))
+    })
+}
 
 function notFound(request, response, next) {
   response.status(404)
@@ -147,11 +198,12 @@ const verifyTwitchSignature = (request, response, next) => {
 }
 
 module.exports = {
-  notFound,
   errorHandler,
-  isAuthenticated,
-  verifyTwitchSignature,
   isAdmin,
+  isAuthenticated,
   isModerator,
-  validApiKey
+  notFound,
+  rateLimit,
+  validApiKey,
+  verifyTwitchSignature
 }

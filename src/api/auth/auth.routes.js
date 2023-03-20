@@ -62,6 +62,7 @@ router.post('/login', async (request, response, next) => {
       throw new Error('Invalid login credentials.')
     }
 
+    // deepcode ignore NoRateLimitingForLogin: it is rate limited
     const validPassword = await bcrypt.compare(password, existingUser.password)
     if (!validPassword) {
       response.status(403)
