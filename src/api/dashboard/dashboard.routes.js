@@ -29,9 +29,21 @@ createBullBoard({
     new BullAdapter(twitchFetchStreamQueue),
     new BullAdapter(twitchRegisterWebhookQueue)
   ],
-  serverAdapter
+  serverAdapter,
+  options: {
+    uiConfig: {
+      boardTitle: 'Twitch-Tracker'
+    }
+  }
 })
 
-router.use('/', serverAdapter.getRouter())
+router.use(
+  '/',
+  (request, response, next) => {
+    response.setHeader('Content-Security-Policy', '')
+    next()
+  },
+  serverAdapter.getRouter()
+)
 
 module.exports = router

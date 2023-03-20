@@ -24,7 +24,7 @@ router.get('/', rateLimit, (request, response) => {
 
 router.use('/auth', rateLimit, auth)
 router.use('/channel', rateLimit, channel)
-router.use('/dashboard', rateLimit, dashboard)
+router.use('/dashboard', dashboard)
 router.use('/functions', rateLimit, functions)
 router.use('/job', rateLimit, job)
 router.use('/report', rateLimit, report)
