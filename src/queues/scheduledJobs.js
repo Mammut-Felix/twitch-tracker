@@ -2,7 +2,7 @@ module.exports = {
   schedule_generate_report: {
     daily: {
       name: 'schedule | generate-daily-report',
-      cron: '0 6 * * *',
+      cron: '0 11 * * *',
       concurrency: 1,
       processorName: '*'
     }
