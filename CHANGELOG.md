@@ -1,3 +1,10 @@
+## [0.2.17](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.16...0.2.17) (2023-03-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-to-text to v9.0.5 ([b6d51e7](https://github.com/Mammut-Felix/twitch-tracker/commit/b6d51e722a3490fc6bb473ecc639a72c0d640985))
+
 ## [0.2.16](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.15...0.2.16) (2023-03-20)
 
 
