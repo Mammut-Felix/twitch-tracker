@@ -3,6 +3,9 @@ const Redis = require('ioredis')
 const { config, nodes } = require('./redis')
 const axios = require('axios')
 
+const prefix =
+  process.env.REDIS_MODE === 'cluster' ? '{twitch-tracker:twitch}' : 'twitch-tracker:twitch'
+
 const redisClient = () => {
   return nodes.length > 0 && process.env.REDIS_MODE === 'cluster'
     ? new Redis.Cluster(nodes, config)
@@ -50,7 +53,7 @@ exports.verifyTwitchSignature = (request, response, buf, encoding) => {
 }
 
 exports.accessToken = async () => {
-  let token = await redisClient().get('{raid-tracker}:twitch:access_token')
+  let token = await redisClient().get(`${prefix}:access_token`)
 
   if (!token) {
     const { data } = await axios.post('https://id.twitch.tv/oauth2/token', {
@@ -60,7 +63,7 @@ exports.accessToken = async () => {
     })
 
     await redisClient().set(
-      '{raid-tracker}:twitch:access_token',
+      `${prefix}:access_token`,
       data.access_token,
       'EX',
       data.expires_in - 300
