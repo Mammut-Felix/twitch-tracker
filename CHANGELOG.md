@@ -1,3 +1,10 @@
+## [0.2.19](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.18...0.2.19) (2023-04-08)
+
+
+### Bug Fixes
+
+* redis prefix ([e49c88e](https://github.com/Mammut-Felix/twitch-tracker/commit/e49c88e0c2c14d1d443f4179697b0fa3afaeac1f))
+
 ## [0.2.18](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.17...0.2.18) (2023-03-31)
 
 
