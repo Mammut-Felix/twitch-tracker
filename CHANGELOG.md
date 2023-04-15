@@ -1,3 +1,10 @@
+## [0.2.20](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.19...0.2.20) (2023-04-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency helmet to v6.1.5 ([4d28f9f](https://github.com/Mammut-Felix/twitch-tracker/commit/4d28f9f0a1b2982543de5badecc9587e93676376))
+
 ## [0.2.19](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.18...0.2.19) (2023-04-08)
 
 
