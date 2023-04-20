@@ -1,3 +1,10 @@
+## [0.2.21](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.20...0.2.21) (2023-04-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ioredis to v5.3.2 ([9ad734f](https://github.com/Mammut-Felix/twitch-tracker/commit/9ad734f8d428105a236768355ce940f0eff4c86a))
+
 ## [0.2.20](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.19...0.2.20) (2023-04-15)
 
 
