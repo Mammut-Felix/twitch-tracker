@@ -206,29 +206,29 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@bull-board/api@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-5.0.1.tgz#b9d4d480bdfaae320aae4bce287d57458812ea28"
-  integrity sha512-UR3m4Ebi8ngI+6L+guLCS1tU7r+/UGEGEzBytLqwjYVSsubgzbWyGH0LMUDFHrM+bkZ7iEKOqy+a6hFErHhk2Q==
+"@bull-board/api@5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-5.1.1.tgz#1a7e966afc65e2ca453b63f521aad00bdf78cf2e"
+  integrity sha512-q3vr/gXGY2ubLqm9rw0V1qP44Bj24x71u1t+zEs7CpqiOJI9Rjf8OjrAI8FlzF6iNBcmI2mCAGDl4U3Kg6PjoQ==
   dependencies:
     redis-info "^3.0.8"
 
-"@bull-board/express@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@bull-board/express/-/express-5.0.1.tgz#e9589dbebe495acf61b3ddfca98322b565905511"
-  integrity sha512-AHKeX8cJiYF6F7Ih2+5Goic5Uaip1gctj6UFMXm65CN2GHpkqepasWF8wfSdkhBnhkOjbRiLUNPx1sW3bmihog==
+"@bull-board/express@5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@bull-board/express/-/express-5.1.1.tgz#0832ff80ab1527b613c2dd0e9cd9e56c9ad91ab5"
+  integrity sha512-iQ8n9uN7nxsizZ/1hZi5u3CEj7wtEZoDo0/MkRNheTsdro7f/MuKHIfiohZpouxSD92mNvclAqEbzGetBYpe1A==
   dependencies:
-    "@bull-board/api" "5.0.1"
-    "@bull-board/ui" "5.0.1"
+    "@bull-board/api" "5.1.1"
+    "@bull-board/ui" "5.1.1"
     ejs "3.1.7"
     express "4.17.3"
 
-"@bull-board/ui@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@bull-board/ui/-/ui-5.0.1.tgz#bf37fdce7878143da248c9e68fa78b051ee884d5"
-  integrity sha512-eTR4+AwQ+e02GmcB5pvcq0Tkf3jPUhnLt+LxMk995sVoBZTbrIAtCgcMFK9eZcGJlBX3vEJfmrWdL2XYRiXhvA==
+"@bull-board/ui@5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@bull-board/ui/-/ui-5.1.1.tgz#4c5af9435510bc08ad4a873a43688d06caa94fed"
+  integrity sha512-+N/m29ZuKLIDFIC743sGE0+vtM0rNMPyidV3m3gZ5fItkrafKrZe2e83sluE7lcrM0iWj4mW4aEF20DYO2J85w==
   dependencies:
-    "@bull-board/api" "5.0.1"
+    "@bull-board/api" "5.1.1"
 
 "@colors/colors@1.5.0":
   version "1.5.0"
@@ -271,10 +271,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@8.38.0":
-  version "8.38.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.38.0.tgz#73a8a0d8aa8a8e6fe270431c5e72ae91b5337892"
-  integrity sha512-IoD2MfUnOV58ghIHCiil01PcohxjbYR/qCxsoC+xNgUwh1EY8jOOrYmu3d3a71+tJJ23uscEV4X2HJWMsPJu4g==
+"@eslint/js@8.39.0":
+  version "8.39.0"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.39.0.tgz#58b536bcc843f4cd1e02a7e6171da5c040f4d44b"
+  integrity sha512-kf9RB0Fg7NZfap83B3QOqOGg9QmD9yBudqQXzzOtn3i4y7ZUXe5ONeW34Gwi+TxhH4mvj72R1Zc300KUMa9Bng==
 
 "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -2373,10 +2373,10 @@ eslint-plugin-unicorn@46.0.0:
     semver "^7.3.8"
     strip-indent "^3.0.0"
 
-eslint-scope@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-7.1.1.tgz#fff34894c2f65e5226d3041ac480b4513a163642"
-  integrity sha512-QKQM/UXpIiHcLqJ5AOyIW7XZmzjkzQXYE54n1++wb0u9V/abW3l9uQnxX8Z5Xd18xyKIMTUAyQ0k1e8pz6LUrw==
+eslint-scope@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-7.2.0.tgz#f21ebdafda02352f103634b96dd47d9f81ca117b"
+  integrity sha512-DYj5deGlHBfMt15J7rdtyKNq/Nqlv5KfU4iodrQ019XESsRnwXH9KAE0y3cwtUHDo2ob7CypAnCqefh6vioWRw==
   dependencies:
     esrecurse "^4.3.0"
     estraverse "^5.2.0"
@@ -2410,15 +2410,15 @@ eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.0.tgz#c7f0f956124ce677047ddbc192a68f999454dedc"
   integrity sha512-HPpKPUBQcAsZOsHAFwTtIKcYlCje62XB7SEAcxjtmW6TD1WVpkS6i6/hOVtTZIl4zGj/mBqpFVGvaDneik+VoQ==
 
-eslint@8.38.0:
-  version "8.38.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.38.0.tgz#a62c6f36e548a5574dd35728ac3c6209bd1e2f1a"
-  integrity sha512-pIdsD2jwlUGf/U38Jv97t8lq6HpaU/G9NKbYmpWpZGw3LdTNhZLbJePqxOXGB5+JEKfOPU/XLxYxFh03nr1KTg==
+eslint@8.39.0:
+  version "8.39.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.39.0.tgz#7fd20a295ef92d43809e914b70c39fd5a23cf3f1"
+  integrity sha512-mwiok6cy7KTW7rBpo05k6+p4YVZByLNjAZ/ACB9DRCu4YDRwjXI01tWHp6KAUWelsBetTxKK/2sHB0vdS8Z2Og==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@eslint-community/regexpp" "^4.4.0"
     "@eslint/eslintrc" "^2.0.2"
-    "@eslint/js" "8.38.0"
+    "@eslint/js" "8.39.0"
     "@humanwhocodes/config-array" "^0.11.8"
     "@humanwhocodes/module-importer" "^1.0.1"
     "@nodelib/fs.walk" "^1.2.8"
@@ -2428,7 +2428,7 @@ eslint@8.38.0:
     debug "^4.3.2"
     doctrine "^3.0.0"
     escape-string-regexp "^4.0.0"
-    eslint-scope "^7.1.1"
+    eslint-scope "^7.2.0"
     eslint-visitor-keys "^3.4.0"
     espree "^9.5.1"
     esquery "^1.4.2"
