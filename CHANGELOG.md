@@ -1,3 +1,10 @@
+## [0.2.26](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.25...0.2.26) (2023-05-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to v1.4.0 ([b53b37e](https://github.com/Mammut-Felix/twitch-tracker/commit/b53b37e21aa25a0a1e3bde49e2f08f7a4bbdf9e9))
+
 ## [0.2.25](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.24...0.2.25) (2023-04-28)
 
 
