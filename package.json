@@ -36,8 +36,8 @@
     "linux"
   ],
   "dependencies": {
-    "@bull-board/api": "5.1.2",
-    "@bull-board/express": "5.1.2",
+    "@bull-board/api": "5.2.0",
+    "@bull-board/express": "5.2.0",
     "@prisma/client": "4.14.0",
     "axios": "1.4.0",
     "bcrypt": "5.1.0",
