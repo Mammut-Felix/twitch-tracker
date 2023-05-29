@@ -1,3 +1,10 @@
+## [0.2.33](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.32...0.2.33) (2023-05-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.9.0 ([e76bcc1](https://github.com/Mammut-Felix/twitch-tracker/commit/e76bcc1289135cbdae81e3509e6e5debc5848942))
+
 ## [0.2.32](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.31...0.2.32) (2023-05-20)
 
 
