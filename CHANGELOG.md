@@ -1,3 +1,10 @@
+## [0.2.34](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.33...0.2.34) (2023-06-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nodemailer to v6.9.3 ([d48c43c](https://github.com/Mammut-Felix/twitch-tracker/commit/d48c43c129195aefdcaaa75241fa2fdbf446df3f))
+
 ## [0.2.33](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.32...0.2.33) (2023-05-29)
 
 
