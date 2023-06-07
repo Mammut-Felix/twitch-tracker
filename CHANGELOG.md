@@ -1,3 +1,10 @@
+## [0.2.37](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.36...0.2.37) (2023-06-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v16.1.4 ([4d5b56a](https://github.com/Mammut-Felix/twitch-tracker/commit/4d5b56a08c0ff38f7b1f609f024da77e1c03a53d))
+
 ## [0.2.36](https://github.com/Mammut-Felix/twitch-tracker/compare/0.2.35...0.2.36) (2023-06-03)
 
 
