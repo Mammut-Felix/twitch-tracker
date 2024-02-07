@@ -80,7 +80,7 @@
     "mocha": "10.2.0",
     "nodemon": "2.0.22",
     "nyc": "15.1.0",
-    "prettier": "2.8.8",
+    "prettier": "3.2.5",
     "semantic-release": "21.1.2",
     "semver": "7.5.2",
     "supertest": "6.3.3"
